@@ -14,11 +14,24 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity6Informacion"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity5FormasPago"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity4Pasajes"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity3IniciarSesion"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity2Registrarse"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
