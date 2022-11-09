@@ -16,7 +16,17 @@ public class MainActivity3IniciarSesion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity3_iniciar_sesion);
 
+
+
+
+
     }
+
+
+
+
+
+
     // main_menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
