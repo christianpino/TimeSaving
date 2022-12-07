@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.timesaving.db.DbHelper;
 
 public class MainActivity2Registrarse extends AppCompatActivity {
     Button btnregistrarse;
@@ -29,7 +33,20 @@ public class MainActivity2Registrarse extends AppCompatActivity {
         btnregistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity2Registrarse.this, MainActivity3IniciarSesion.class);
+
+                DbHelper dbHelper = new DbHelper( MainActivity2Registrarse.this);
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                if(db != null){
+                    Toast.makeText(MainActivity2Registrarse.this, "USUARIO CREADO", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity2Registrarse.this, "ERROR AL CREAR USUARIO", Toast.LENGTH_LONG).show();
+                }
+
+
+               Intent intent = new Intent(getApplication(), MainActivity3Maps.class);
+                intent.putExtra("Nombre",edtnombrecompleto.getText().toString());
+                intent.putExtra("Dni",edtdni.getText().toString());
+                intent.putExtra("Correo",edtcorreoelectronico.getText().toString());
                 startActivity(intent);
             }
         });
@@ -50,7 +67,7 @@ public class MainActivity2Registrarse extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.item1:  //rutas
-                Intent intent1 = new Intent(MainActivity2Registrarse.this, MainActivity3IniciarSesion.class);
+                Intent intent1 = new Intent(MainActivity2Registrarse.this, MainActivity3Maps.class);
                 startActivity(intent1);
                 break;
             case R.id.item2:    //Pasajes

@@ -13,9 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class MainActivity extends AppCompatActivity {
     private EditText edtlogin, edtpass;
     private Button btnRegistrar, btnIniciarSesion;
@@ -52,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         Bundle enviadato = new Bundle();
                         enviadato.putString("keydatos",edtlogin.getText().toString());
 
-                        Intent intent = new Intent(MainActivity.this, MainActivity3IniciarSesion.class);
+                        Intent intent = new Intent(MainActivity.this, MainActivity3Maps.class);
                         intent.putExtras(enviadato);
                         startActivity(intent);
 
@@ -96,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.item1:  //rutas
-                Intent intent1 = new Intent(MainActivity.this, MainActivity3IniciarSesion.class);
+                Intent intent1 = new Intent(MainActivity.this, MainActivity3Maps.class);
                 startActivity(intent1);
                 break;
             case R.id.item2:    //Pasajes
